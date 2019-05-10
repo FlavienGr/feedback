@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const URI = process.env.MONGO_DB_URI;
-
+console.log(URI);
 const options = {
   useNewUrlParser: true,
   useCreateIndex: true

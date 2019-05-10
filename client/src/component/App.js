@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { Router, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import Header from "./Header";
 import * as actions from "../redux/actions";
-console.log(actions);
+import history from "../history";
+import Landing from "./Landing";
 const Dashboard = () => <h2>dashboard</h2>;
 const SurverNew = () => <h2>surveynew</h2>;
-const Landing = () => <h2>landing</h2>;
 
 class App extends Component {
   componentDidMount() {
@@ -16,14 +16,14 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <BrowserRouter>
+        <Router history={history}>
           <div>
             <Header />
             <Route exact={true} path="/" component={Landing} />
-            <Route exact path="/survey" component={Dashboard} />
-            <Route path="/survey/new" component={SurverNew} />
+            <Route exact path="/surveys" component={Dashboard} />
+            <Route path="/surveys/new" component={SurverNew} />
           </div>
-        </BrowserRouter>
+        </Router>
       </div>
     );
   }
