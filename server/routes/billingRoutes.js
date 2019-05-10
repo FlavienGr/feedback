@@ -1,7 +1,7 @@
 const express = require("express");
 const route = express.Router();
-
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const Stripe = require("stripe");
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 const auth = require("../middlewares/auth");
 route.post("/api/stripe", auth, async (req, res) => {
   // Token is created using Checkout or Elements!
